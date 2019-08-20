@@ -21,11 +21,22 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
      this.displaycat()
      this.displaytailor()
+     this.displayproduct()
   }
 displaycat(){
   // this.response = this.Jarwis.det;
   // console.log(this.response);
   this.Jarwis.catid().subscribe(data=>{
+    //console.log(data);
+    this.response = data;
+   // console.log(this.response);
+  })
+  
+}
+displayproduct(){
+  // this.response = this.Jarwis.det;
+  // console.log(this.response);
+  this.Jarwis.allproduct().subscribe(data=>{
     //console.log(data);
     this.response = data;
    // console.log(this.response);

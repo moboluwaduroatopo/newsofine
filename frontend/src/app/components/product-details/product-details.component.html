@@ -37,28 +37,28 @@
                                             "asNavFor": ".nav-slider"
                                         }'>
                                             <figure class="product-gallery__image zoom">
-                                                <img src="assets/img/products/prod-9-1.jpg" alt="Product">
+                                                <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
                                                 <div class="product-gallery__actions">
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
                                                     <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
                                                 </div>
                                             </figure>
                                             <figure class="product-gallery__image zoom">
-                                                <img src="assets/img/products/prod-32.jpg" alt="Product">
+                                                <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
                                                 <div class="product-gallery__actions">
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
                                                     <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
                                                 </div>
                                             </figure>
                                             <figure class="product-gallery__image zoom">
-                                                <img src="assets/img/products/prod-33.jpg" alt="Product">
+                                                <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
                                                 <div class="product-gallery__actions">
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
                                                     <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
                                                 </div>
                                             </figure>
                                             <figure class="product-gallery__image zoom">
-                                                <img src="assets/img/products/prod-34.jpg" alt="Product">
+                                                <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
                                                 <div class="product-gallery__actions">
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
                                                     <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
@@ -107,16 +107,16 @@
                                         }
                                     ]'>
                                         <figure class="product-gallery__nav-image--single">
-                                            <img src="assets/img/products/prod-9-1-170x195.jpg" alt="Products">
+                                            <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
                                         </figure>
                                         <figure class="product-gallery__nav-image--single">
-                                            <img src="assets/img/products/prod-32-170x195.jpg" alt="Products">
+                                            <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
                                         </figure>
                                         <figure class="product-gallery__nav-image--single">
-                                            <img src="assets/img/products/prod-33-170x195.jpg" alt="Products">
+                                            <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
                                         </figure>
                                         <figure class="product-gallery__nav-image--single">
-                                            <img src="assets/img/products/prod-34-170x195.jpg" alt="Products">
+                                            <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
                                         </figure>
                                     </div>
                                 </div>
@@ -135,12 +135,12 @@
                                     <span>Rated <strong class="rating">5.00</strong> out of 5</span>
                                 </div>
                             </div>
-                            <h3 class="product-title mb--20">Black Blazer</h3>
-                            <p class="product-short-description mb--20">Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.</p>
+                            <h3 class="product-title mb--20">{{sdet.cat_name}}</h3>
+                            <p class="product-short-description mb--20">{{sdet.description}}.</p>
                             <div class="product-price-wrapper mb--25">
-                                <span class="money">$200.00</span>
-                                <span class="price-separator">-</span>
-                                <span class="money">$400.00</span>
+                                <span class="money">{{sdet.price}}</span>
+                                <!-- <span class="price-separator">-</span>
+                                <span class="money">$400.00</span> -->
                             </div>
 
                             <form action="#" class="form--action mb--30">
@@ -153,15 +153,15 @@
                                                 </div>
                                             </td>
                                             <td class="product-name">
-                                                <h3><a href="product-details.html">Men's Fashion Comfort Genuine Leather Belt</a></h3>
+                                                <h3><a href="product-details.html">{{sdet.product_name}}</a></h3>
                                             </td>
                                             <td class="product-price">
                                                 <div class="product-price-wrapper">
-                                                    <span class="money">$49.00</span>
+                                                    <span class="money">{{sdet.price}}</span>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td class="product-quantity">
                                                 <div class="quantity">
                                                     <input type="number" class="quantity-input" name="qty" id="qty-2" value="0" min="0">
@@ -195,11 +195,11 @@
                                                     </span>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </table>
                                 </div>
                                 <div class="product-action">
-                                    <button type="button" href="cart" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                    <button type="submit" name="submit" value="Add to cart"  (click)="OnAddCart(sdet)" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -343,6 +343,148 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                        <h2>Other Gigs By {{sdet.name}}</h2>
+                        <div class="row  flex-row flex-nowrap">
+                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response.shopdetails">
+                                <!-- <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" >  -->
+                                        <div class="zakas-product">
+                                            <div class="product-inner">
+                                                <figure class="product-image">
+                                                    <a href="product-details/{{r.id}}">
+                                                        <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
+                                                    </a>
+                                                    <div class="zakas-product-action">
+                                                        <div class="product-action d-flex">
+                                                            <div class="product-size">
+                                                                <a href="" class="action-btn">
+                                                                    <span class="current">XL</span>
+                                                                </a>
+                                                                <div class="product-size-swatch">
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        L
+                                                                    </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        M
+                                                                    </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        S
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-color">
+                                                                <a href="" class="action-btn">
+                                                                    <span class="current abbey">Abbey</span>
+                                                                </a>
+                                                                <div class="product-color-swatch">
+                                                                    <span class="product-color-swatch-btn blue variation-btn">
+                                                                        Blue
+                                                                    </span>
+                                                                    <span class="product-color-swatch-btn copper variation-btn">
+                                                                        Copper
+                                                                    </span>
+                                                                    <span class="product-color-swatch-btn old-rose variation-btn">
+                                                                        Old Rose
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="wishlist.html" class="action-btn">
+                                                                <i class="flaticon flaticon-like"></i>
+                                                            </a>
+                                                            <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
+                                                                <i class="flaticon flaticon-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <span class="product-badge">New</span>
+                                                </figure>
+                                                <div class="product-info">
+                                                    <h3 class="product-title mb--15">
+                                                        <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                    </h3>
+                                                    <div class="product-price-wrapper mb--30">
+                                                        <span class="money">{{r.price}}</span>
+                                                        <span class="money-separator">-</span>
+                                                        <span class="money">$200</span>
+                                                    </div>
+                                                    <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
+                             </div>
+                             </div></div><br>
+                <div class="container">
+                        <h2>Recommended For You In {{sdet.cat_name}}</h2>
+                     <div class="row  flex-row flex-nowrap">
+                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response.catdetails">
+                                <!-- <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" >  -->
+                                        <div class="zakas-product">
+                                            <div class="product-inner">
+                                                <figure class="product-image">
+                                                    <a href="product-details/{{r.id}}">
+                                                        <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
+                                                    </a>
+                                                    <div class="zakas-product-action">
+                                                        <div class="product-action d-flex">
+                                                            <div class="product-size">
+                                                                <a href="" class="action-btn">
+                                                                    <span class="current">XL</span>
+                                                                </a>
+                                                                <div class="product-size-swatch">
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        L
+                                                                    </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        M
+                                                                    </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                        S
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-color">
+                                                                <a href="" class="action-btn">
+                                                                    <span class="current abbey">Abbey</span>
+                                                                </a>
+                                                                <div class="product-color-swatch">
+                                                                    <span class="product-color-swatch-btn blue variation-btn">
+                                                                        Blue
+                                                                    </span>
+                                                                    <span class="product-color-swatch-btn copper variation-btn">
+                                                                        Copper
+                                                                    </span>
+                                                                    <span class="product-color-swatch-btn old-rose variation-btn">
+                                                                        Old Rose
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="wishlist.html" class="action-btn">
+                                                                <i class="flaticon flaticon-like"></i>
+                                                            </a>
+                                                            <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
+                                                                <i class="flaticon flaticon-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <span class="product-badge">New</span>
+                                                </figure>
+                                                <div class="product-info">
+                                                    <h3 class="product-title mb--15">
+                                                        <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                    </h3>
+                                                    <div class="product-price-wrapper mb--30">
+                                                        <span class="money">{{r.price}}</span>
+                                                        <span class="money-separator">-</span>
+                                                        <span class="money">$200</span>
+                                                    </div>
+                                                    <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
+                             </div>
+                             </div></div>
                 <div class="row">
                     <div class="col-12">
                         <div class="zakas-element-carousel nav-vertical-center" data-slick-options='{

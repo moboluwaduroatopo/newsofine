@@ -28,17 +28,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+   // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -52,6 +52,18 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'phone' => ['required', 'string', 'max:200'],
+            'country' => ['required', 'string', 'max:200'],
+            'town'=>['required', 'string', 'max:200' ],
+            'address'=>['required', 'string', 'max:200'],
+              'role'=>['required', 'string', 'max:200'],
+             'shopname'=>['required', 'string', 'max:200'],
+             'tin'=>['required', 'string', 'max:200'],
+             'companyname'=>['required', 'string', 'max:200'],
+             'acctname'=>['required', 'string', 'max:200'],
+             'bankname'=>['required', 'string', 'max:200'],
+             'brn'=>['required', 'string', 'max:200'],
+          'acctnumber'=>['required', 'string', 'max:200'],
         ]);
     }
 
@@ -66,7 +78,21 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'country' => $data['country'],
+             'phone' => $data['phone'],
+            'town'=>$data['town'],
+            'address'=>$data['address'],
+              'role'=>$data['role'],
+             'shopname'=>$data['shopname'],
+             'tin'=>$data['tin'],
+             'companyname'=>$data['companyname'],
+             'acctname'=>$data['acctname'],
+             'bankname'=>$data['bankname'],
+             'acctnumber'=>$data['acctnumber'],
+             'brn'=>$data['brn'],
             'password' => Hash::make($data['password']),
         ]);
+        return view('/auth/login');
     }
+
 }

@@ -29,7 +29,7 @@
                           </div>
                           <div class="mainmenu-nav d-none d-lg-block">
                               <ul class="mainmenu">
-                                  <li class="mainmenu__item menu-item-has-children active">
+                                  <!-- <li class="mainmenu__item menu-item-has-children active">
                                       <a href="index.html" class="mainmenu__link">
                                           <span class="mm-text">Home</span>
                                       </a>
@@ -99,8 +99,13 @@
                                               </ul>
                                           </li>
                                       </ul>
-                                  </li>
-                                  <li class="mainmenu__item menu-item-has-children">
+                                  </li> -->
+                                  <li class="mainmenu__item">
+                                        <a routerLink="/"  class="mainmenu__link">
+                                            <span class="mm-text">Home</span>
+                                        </a>
+                                    </li>
+                                  <!-- <li class="mainmenu__item menu-item-has-children">
                                       <a href="shop.html" class="mainmenu__link">
                                           <span class="mm-text">Shop</span>
                                       </a>
@@ -234,8 +239,8 @@
                                               </ul>
                                           </li>
                                       </ul>
-                                  </li>
-                                  <li class="mainmenu__item menu-item-has-children">
+                                  </li> -->
+                                  <!-- <li class="mainmenu__item menu-item-has-children">
                                       <a href="Blog.html" class="mainmenu__link">
                                           <span class="mm-text">Designers</span>
                                       </a>
@@ -325,18 +330,57 @@
                                               </ul>
                                           </li>
                                       </ul>
-                                  </li>
+                                  </li> -->
+                                  <li class="mainmenu__item menu-item-has-children">
+                                        <a href="#" class="mainmenu__link">
+                                            <span class="mm-text">Shop</span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                              
+                                            <li *ngFor="let r of response.shop" >
+                                                <a routerLink="shop/{{r.id}}" >
+                                                    <span class="mm-text">{{r.cat_name}}</span>
+                                                </a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="checkout">
+                                                    <span class="mm-text">Checkout</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cart">
+                                                    <span class="mm-text">Cart</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html">
+                                                    <span class="mm-text">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="order-tracking.html">
+                                                    <span class="mm-text">Track Order</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.html">
+                                                    <span class="mm-text">Wishlist</span>
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                    </li>
                                   <li class="mainmenu__item menu-item-has-children">
                                       <a href="#" class="mainmenu__link">
-                                          <span class="mm-text">Facilities</span>
+                                          <span class="mm-text">Designers</span>
                                       </a>
                                       <ul class="sub-menu">
-                                          <li>
-                                              <a href="my-account.html">
-                                                  <span class="mm-text">My Account</span>
+                                            
+                                          <li *ngFor="let r of response.tailor" >
+                                              <a routerLink="shop/{{r.id}}" >
+                                                  <span class="mm-text">{{r.cat_name}}</span>
                                               </a>
                                           </li>
-                                          <li>
+                                          <!-- <li>
                                               <a href="checkout">
                                                   <span class="mm-text">Checkout</span>
                                               </a>
@@ -360,11 +404,11 @@
                                               <a href="wishlist.html">
                                                   <span class="mm-text">Wishlist</span>
                                               </a>
-                                          </li>
+                                          </li> -->
                                       </ul>
                                   </li>
                                   <li class="mainmenu__item">
-                                      <a href="contact-us.html" class="mainmenu__link">
+                                      <a routerLink="http://localhost/newsofine/backend/public/" class="mainmenu__link">
                                           <span class="mm-text">Become a seller</span>
                                       </a>
                                   </li>
@@ -380,32 +424,38 @@
                               </a>
                           </li>
                           <li class="header-toolbar__item mini-cart-item">
-                              <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
+                              <a routerLink="cart" class="">
                                   <i class="flaticon flaticon-shopping-cart"></i>
                                   <sup class="mini-cart-count">2</sup>
                               </a>
                           </li>
                           <li class="header-toolbar__item user-info">
-                              <a href="" class="header-toolbar__btn">
-                                  <i class="flaticon flaticon-user"></i>
-                              </a>
+                              <!-- <a href="" class="header-toolbar__btn">
+                                  
+                              </a> -->
+                              <i class="flaticon flaticon-user"></i>
                               <ul class="user-info-menu">
                                   
+                                 
                                   <li>
-                                      <a routerLink="buyer">
-                                          <span class="mm-text">My Account</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a routerLink="login">
+                                      <a  data-toggle="modal" data-target="#exampleModal"   *ngIf="!loggedIn">
                                           <span class="mm-text">Login</span>
                                       </a>
                                   </li>
                                   <li>
-                                      <a routerLink="signup">
+                                      <a routerLink="signup" *ngIf="!loggedIn">
                                           <span class="mm-text">registration</span>
                                       </a>
                                   </li>
+                                  <li>
+                                        <a routerLink="buyer" *ngIf="loggedIn">
+                                                <span class="mm-text">My Account</span> 
+                                        </a>
+                                    </li>
+                                    <li ><a class="mm-text" routerLink="/register"  (click)="logout($event)" *ngIf="loggedIn">
+                                         Logout
+                                          </a>
+                                        </li>
                               </ul>
                           </li>
                           <li class="header-toolbar__item">
@@ -797,7 +847,7 @@
 <!-- log in -->
 
 
-<!-- <app-login></app-login> -->
+<app-login></app-login>
 
 <!-- register -->
 <!-- <app-signup></app-signup> -->

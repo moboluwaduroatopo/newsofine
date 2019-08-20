@@ -12,7 +12,7 @@ class RoutingController extends Controller
     		'name' => ['john','jane','Yusuf','Taju']
     	);
     	
-    	return view('pages.index')->with($data);
+    	return view('welcome')->with($data);
     }
     public function about(){
     	return view('pages/about');

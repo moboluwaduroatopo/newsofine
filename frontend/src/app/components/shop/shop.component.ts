@@ -51,6 +51,6 @@ export class ShopComponent implements OnInit {
   }
 
   navigate(id){
-    this.router.navigate(['shopdetails/'+id+''])
+    this.router.navigate(['product-details/'+id+''])
   }
 }

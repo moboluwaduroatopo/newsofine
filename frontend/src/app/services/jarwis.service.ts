@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class JarwisService {
   // public productdetail:any;
   private baseUrll = 'http://localhost/newsofine/sofinelarangular-master/backend/backend/public';
-  private baseUrl = 'http://localhost/newsofine/sofinelarangular-master/backend/public/api';
+  private baseUrl = 'http://localhost/newsofine/backend/public/api';
   public det: any;
   constructor(private http: HttpClient) { }
  
@@ -45,6 +45,9 @@ export class JarwisService {
   }
   shop(id:string) {
     return this.http.get(`${this.baseUrl}/shop/${id}`)
+  }
+  allproduct() {
+    return this.http.get(`${this.baseUrl}/product`)
   }
   cart() {
     return this.http.get(`${this.baseUrl}/cart-show`)

@@ -12,12 +12,12 @@
 */
 
 Route::get('/','RoutingController@index');
-Route::get('/about','RoutingController@about');
-Route::get('/contact','RoutingController@contact');
+Route::get('/order','RoutingController@order');
+Route::get('/addproduct','RoutingController@addproduct');
 // Route::get('/about','RoutingController@about');
  Route::get('/updateprofile', 'AuthController@updateprofile');
-Route::get('/signup','RoutingController@signup');
-Route::get('/login','RoutingController@login');
+Route::get('/productlist','RoutingController@productlist');
+Route::get('/invoice','RoutingController@invoice');
 Route::resource('/registration','RegistrationController');
 Auth::routes();
 

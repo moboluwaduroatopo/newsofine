@@ -22,39 +22,39 @@ export class ProfileComponent implements OnInit {
  
 
  ngOnInit() {
-    this.displayprofile()
+    // this.displayprofile()
  }
-displayprofile(){
- this.Jarwis.profile().subscribe(
-   data=>{
-   //console.log(data);
-   this.response = data;
-  // console.log(this.response.email);
- })
+// displayprofile(){
+// //  this.Jarwis.profile().subscribe(
+// //    data=>{
+// //    //console.log(data);
+// //    this.response = data;
+// //   // console.log(this.response.email);
+// //  })
  
-}
-uploadFile(event){
-  let files =event.target.files[0];
-  let reader = new FileReader();
-  let vm = this;
-  reader.onloadend =()=> {
-    // body...
-    this.response.file = reader.result;
-   // console.log(this.response.file)
-  }
-  reader.readAsDataURL(files);
-}
-onSubmit() {
-  console.log(this.response)
-  this.Jarwis.updateprofile(this.response).subscribe(
-     data => this.handleResponse(data),
-    //error => this.handleError(error)
-  );
-}
-handleResponse(data) {
- // this.Token.handle(data.access_token);
-  this.router.navigateByUrl('/profile');
-}
+// }
+// uploadFile(event){
+//   let files =event.target.files[0];
+//   let reader = new FileReader();
+//   let vm = this;
+//   reader.onloadend =()=> {
+//     // body...
+//     this.response.file = reader.result;
+//    // console.log(this.response.file)
+//   }
+//   reader.readAsDataURL(files);
+// }
+// onSubmit() {
+//   console.log(this.response)
+//   this.Jarwis.updateprofile(this.response).subscribe(
+//      data => this.handleResponse(data),
+//     //error => this.handleError(error)
+//   );
+// }
+// handleResponse(data) {
+//  // this.Token.handle(data.access_token);
+//   this.router.navigateByUrl('/profile');
+// }
 
 // handleError(error) {
 //   this.error = error.error.errors;

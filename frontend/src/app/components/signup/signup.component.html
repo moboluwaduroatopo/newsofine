@@ -22,49 +22,59 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-sm--50">
-                    <div class="login-box">
-                        <h3 class="heading__tertiary mb--30">Login</h3>
-                        <form class="form form--login">
-                            <div class="form__group mb--20">
-                                <label class="form__label form__label--2" for="username_email">Username or email address <span class="required">*</span></label>
-                                <input type="text" class="form__input form__input--2" id="username_email" name="username_email">
-                            </div>
-                            <div class="form__group mb--20">
-                               <label class="form__label form__label--2" for="login_password">Password <span class="required">*</span></label>
-                                <input type="password" class="form__input form__input--2" id="login_password" name="login_password">
-                            </div>
-                            <div class="d-flex align-items-center mb--20">
-                                <div class="form__group mr--30">
-                                    <input type="submit" value="Log in" class="btn-submit">
-                                </div>
-                                <div class="form__group">
-                                    <label class="form__label checkbox-label" for="store_session">
-                                        <input type="checkbox" name="store_session" id="store_session">
-                                        <span>Remember me</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <a class="forgot-pass" href="#">Lost your password?</a>
-                        </form>
-                    </div>
+                 
                 </div>
                 <div class="col-md-6">
                     <div class="register-box">
                         <h4 class="heading__tertiary mb--30">Register</h4>
-                        <form class="form form--login">
-                            <div class="form__group mb--20">
-                                <label class="form__label form__label--2" for="email">Email address <span class="required">*</span></label>
-                                <input type="email" class="form__input form__input--2" id="email" name="email">
+                        <form #signupForm=ngForm (ngSubmit)="onSubmit()">
+                          <div class="form-group ">
+                              <label  class="col-form-label">Name</label>
+                              <input type="text" name="name" class="form__input form__input--2"  id="inputname3" placeholder="Name" [(ngModel)]="form.name" required>
+                              <div class="alert alert-danger" [hidden]="!error.name">
+                                {{error.name}}
                             </div>
-                            <div class="form__group mb--20">
-                               <label class="form__label form__label--2" for="register_password">Password <span class="required">*</span></label>
-                                <input type="password" class="form__input form__input--2" id="register_password" name="register_password">
+                          </div>
+                          <div class="form-group ">
+                              <label  class="col-form-label">Phone</label>              
+                                <input type="text" name="phone" class="form__input form__input--2"  id="inputname3" placeholder="Phone number" [(ngModel)]="form.phone" required>
+                                <div class="alert alert-danger" [hidden]="!error.name">
+                                  {{error.phone}}
+                                </div>
                             </div>
-                            <p class="privacy-text mb--20">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
-                            <div class="form__group">
-                                <input type="submit" value="Register" class="btn btn-submit btn-style-1">
+                            <div class="form-group ">
+                                <label  class="col-form-label">Eamil</label>                     
+                              <input type="email" name="email" class="form__input form__input--2"  id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required>
+                              <div class="alert alert-danger" [hidden]="!error.email">
+                                {{error.email}}               
                             </div>
-                        </form>
+                          </div>
+                  
+                          <div class="form-group ">
+                            <label  class="col-form-label">Password</label>
+                            
+                              <input type="password" name="password" class="form__input form__input--2"  id="inputPasswordConfirmation3" placeholder="Confirm Password"
+                                [(ngModel)]="form.password" required>
+                              <div class="alert alert-danger" [hidden]="!error.password">
+                                {{error.password}}
+                            </div>
+                          </div>
+                  
+                          <div class="form-group ">
+                            <label class=" col-form-label">Confirm Password</label>
+                              <input type="password" name="password_confirmation" class="form__input form__input--2"  id="inputPassword3" placeholder="Password" [(ngModel)]="form.password_confirmation"
+                                required>               
+                          </div>
+                      <div class="right-w3l">
+                        <input type="submit" class="btn btn-submit btn-style-1"  value="Register">
+                      </div>
+                      <div class="sub-w3l">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                          <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+                          <label class="custom-control-label" for="customControlAutosizing2">I Accept to the Terms & Conditions</label>
+                        </div>
+                      </div>
+                    </form>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ return [
  */
 
     'defaults' => [
-        'guard' => 'api',
+        'guard' => 'web',
         'passwords' => 'users',
     ],
 
@@ -45,6 +45,10 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
+        'buyer_user' => [
+            'driver' => 'jwt',
+            'provider' => 'buyer_users',
+        ],
     ],
 
     /*
@@ -69,7 +73,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'buyer_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Buyer_user::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,8 +101,20 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            // 'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+        'buyer_users' => [
+
+            'provider' => 'buyer_users',
+    
+            'email' => 'auth.emails.password',
+    
+            'table' => 'password_resets',
+    
+            'expire' => 60,
+    
         ],
     ],
 

@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TokenService {
   private iss = {
-    login: 'http://localhost/newsofine/sofinelarangular-master/backend/public/api/login',
-    signup: 'http://localhost/newsofine/sofinelarangular-master/backend/public/api/signup'
+    login: 'http://localhost/newsofine/backend/public/api/login',
+    signup: 'http://localhost/newsofine/backend/public/api/signup'
   };
 
   constructor() { }

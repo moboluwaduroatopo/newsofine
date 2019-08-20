@@ -38,7 +38,7 @@ Route::post('addshopdetails','ShopdetailsController@store');
 Route::get('shopdetails/{id}','ShopdetailsController@index');
 Route::get('shop/{id}','ProductController@index');
 Route::get('productdetails/{id}','ProductController@singlep');
-
+Route::get('product','ProductController@allproduct');
 
 Route::POST('/cart_add','CartController@addtocart');
 Route::get('/cart-show','CartController@cartshow');

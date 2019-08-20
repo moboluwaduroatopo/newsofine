@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
-use App\User;
+use App\Buyer_user;
 use Image;
 
 
@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'signup','updateprofile','getalluser']]);
+        $this->middleware('auth:api', ['except' => ['login','me','signup','updateprofile','getalluser']]);
     }
 
     /**
@@ -31,16 +31,17 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (!$token = auth()->attempt($credentials)) {
+        if (!$token = auth()->guard('buyer_user')->attempt($credentials)) {
             return response()->json(['error' => 'Email or password does\'t exist'], 401);
         }
+
 
         return $this->respondWithToken($token);
     }
 
     public function signup(SignUpRequest $request)
     {
-        User::create($request->all());
+        Buyer_user::create($request->all());
         return $this->login($request);
     }
    
@@ -53,7 +54,7 @@ class AuthController extends Controller
    public function getalluser()
     {
          return response()->json([
-            'alluser' => User::where('role','tailor')->get()
+            'alluser' => Buyer_user::where('role','tailor')->get()
         ]);
     }
 
@@ -64,7 +65,8 @@ class AuthController extends Controller
            // 'user' => auth()->user()
         //]);
       //return "done";
-        return response()->json(auth()->user());
+       // return response()->json(auth()->user());
+       return response()->json(auth::guard('buyer_user')->user());
   
     }
 
@@ -75,7 +77,7 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
+        auth::guard('buyer_user')->logout();
 
         return response()->json(['message' => 'Successfully logged out']);
     }
@@ -87,7 +89,7 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        return $this->respondWithToken(auth::guard('buyer_user')->refresh());
     }
     /**
      * Get the token array structure.
@@ -101,17 +103,17 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' => auth::guard('buyer_user')->factory()->getTTL() * 60,
             //'role'=>auth()->user()->role,
             //'user' => auth()->user()->get()
-              'user' => auth()->user()
+              'user' => auth::guard('buyer_user')->user()
         ]);
     }
    
    
    public function updateprofile(Request $request)
     {
-       $user=auth()->user();
+       $user=auth::guard('buyer_user')->user();
       $currentfile= $user->ufile;
     //return $request->file;
       // return ['message'=> 'success'];

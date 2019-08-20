@@ -27,21 +27,21 @@ const appRoutes: Routes = [
     component: HomeComponent
     
   },
+  {
+    path: 'shop/:id',
+    component: ShopComponent,
+  },
   // {
-  //   path: 'shop/:id',
+  //   path: 'shop',
   //   component: ShopComponent,
   // },
   {
-    path: 'shop',
-    component: ShopComponent,
-  },
-  {
     path: 'buyer',
     component: BuyerComponent,
-    // canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService]
   },
   {
-    path: 'product-details',
+    path: 'product-details/:id',
     component: ProductDetailsComponent,
   },
   {
@@ -87,7 +87,7 @@ const appRoutes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    // canActivate: [BeforeLoginService]
+     canActivate: [BeforeLoginService]
   },
   {
     path: 'profile',
