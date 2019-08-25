@@ -27,16 +27,16 @@ export class AddshopdetailsComponent implements OnInit {
 //  })
  
 // }
-displayshopid(){
-  this.Jarwis.shopid().subscribe(
-    data=>{
-    //console.log(data);
-    this.responseshop = data;
-   // this.responses.shop=data;
-   console.log(this.responseshop);
-  })
+// displayshopid(){
+//   this.Jarwis.shopid().subscribe(
+//     data=>{
+//     //console.log(data);
+//     this.responseshop = data;
+//    // this.responses.shop=data;
+//    console.log(this.responseshop);
+//   })
   
- }
+//  }
  uploadFile(event){
   let files =event.target.files[0];
   let reader = new FileReader();
@@ -70,6 +70,6 @@ handleError(error) {
 }
 ngOnInit() {
   // this.displayshopdetails();
-  this.displayshopid()
+  // this.displayshopid()
 }
 }
