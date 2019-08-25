@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../../services/jarwis.service';
 import { TokenService } from '../../services/token.service';
+
 import { Router } from '@angular/router';
 import { EventListener } from '@angular/core/src/debug/debug_node';
+import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -27,8 +29,9 @@ public nums:number=0;
  public message = null;
  public error = null;
  public orderItem;
+  // Shared: any;
   constructor(private Token: TokenService, 
-    private Jarwis: JarwisService,private router: Router) { }
+    private Jarwis: JarwisService,private Shared: SharedService,private router: Router) { }
     public response:any;
 public prod;
     onSubmit() {
@@ -97,9 +100,10 @@ this.Jarwis.profile().subscribe(
     //console.log(this.nums)
     this.displaycart();
     this.productAddedToCart=this.Jarwis.getproductFromCart();
-    console.log(this.productAddedToCart);
+    let cartcount=this.productAddedToCart.length;
+    console.log(cartcount);
     for(let i in this.productAddedToCart){
-      this.productAddedToCart[i].Quantity=1;
+      this.productAddedToCart[i].Quantity =1;
     }
     this.Jarwis.removeAllProductFromCart();
     this.Jarwis.addproductToCart(this.productAddedToCart);
@@ -122,24 +126,16 @@ this.Jarwis.profile().subscribe(
     this.calculteAllTotal(this.productAddedToCart);
   }
   remove(id:string){
-    this.productAddedToCart=this.Jarwis.getproductFromCart();
-    //console.log(this.productAddedToCart);
-    for(var i=0;i< this.productAddedToCart.length;i++)
-    {
-      let item =this.productAddedToCart[i];
-      let index: number= -1;
-      console.log(item);
-      if (item.id==id){
-        this.productAddedToCart.splice(i,1);
-        break;
-      }
-    this.Jarwis.addproductToCart(this.productAddedToCart);
-    this.calculteAllTotal(this.productAddedToCart);
+    // this.productAddedToCart=this.Jarwis.getproductFromCart();
+   // console.log(id);
+    this.productAddedToCart.splice(id, 1)
+    if(this.productAddedToCart.length){
+      localStorage.setItem('product', JSON.stringify(this.productAddedToCart));
+    } else { 
+      localStorage.setItem('product', null);
     }
-    // this.productAddedToCart.find(p=>p.id==product.id).id;
-    // this.Jarwis.removeAllProductFromCart();
-    // //this.Jarwis.addproductToCart(this.productAddedToCart);
-    // this.calculteAllTotal(this.productAddedToCart);
+    this.calculteAllTotal(this.productAddedToCart);
+    
   }
   calculteAllTotal(allItems){
     //console.log(this.calculteAllTotal);

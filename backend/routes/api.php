@@ -25,19 +25,23 @@ Route::group([
   Route::get('gettype','AddtypeController@index');
   
    Route::post('addcat','CategoriesController@store');
-   Route::get('cat','CategoriesController@index');
+   Route::get('shopcat','CategoriesController@shop');
+   Route::get('tailorcat','CategoriesController@tailor');
    Route::get('catid','CategoriesController@catid');
 
 
    Route::post('addshop','ShopController@store');
-//    Route::get('shop/{id}','ShopController@index');
-   Route::get('tailor','ShopController@shop');
+   Route::get('tailor','ShopController@index');
+   Route::get('shopt','ShopController@shop');
    Route::get('shopid','ShopController@shopid');
 //Shopdetails singlep
 Route::post('addshopdetails','ShopdetailsController@store');
 Route::get('shopdetails/{id}','ShopdetailsController@index');
 Route::get('shop/{id}','ProductController@index');
+Route::get('shopcat/{id}','ProductController@cat');
 Route::get('productdetails/{id}','ProductController@singlep');
+Route::get('productdetails1/{id}','ProductController@productbyuser');
+Route::get('productdetails2/{id}','ProductController@productbycat');
 Route::get('product','ProductController@allproduct');
 
 Route::POST('/cart_add','CartController@addtocart');

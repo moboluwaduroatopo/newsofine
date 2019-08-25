@@ -10,7 +10,8 @@ export class ShopComponent implements OnInit {
   public response:any;
   public det:any;
   public cat:any;
-  public shop_id
+  public shop_id;
+  public res;
   constructor(
     private Jarwis: JarwisService,
     private router: Router,
@@ -38,10 +39,16 @@ export class ShopComponent implements OnInit {
       this.shop_id = params.get('id');
        //console.log(this.shop_id)
     this.Jarwis.shop(this.shop_id).subscribe(data=>{
+    this.res = data;
+    // console.log(this.res)
+    this.det=this.res[0];
+   console.log(this.det.cat_name);
+  })
+  this.Jarwis.shopcat(this.shop_id).subscribe(data=>{
     this.response = data;
     console.log(this.response)
-    this.det=this.response.catname[0];
-   console.log(this.det.cat_name);
+  //   this.det=this.response.catname[0];
+  //  console.log(this.det.cat_name);
   })
      // console.log(this.Jarwis.shop(id));
     }));

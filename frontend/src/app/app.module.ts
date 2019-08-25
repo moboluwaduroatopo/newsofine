@@ -33,7 +33,6 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

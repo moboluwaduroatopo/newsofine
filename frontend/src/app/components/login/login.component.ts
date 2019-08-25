@@ -40,7 +40,11 @@ public role;
       );
   }
   handleResponse(data) {
-    this.message='Login successfully'
+     setTimeout(()=>{
+      this.message='Login successfully'
+    //this.closeAlert(this.alerts);
+  },1000);
+    // this.message='Login successfully'
     //this.Jarwis.authuser(data);
     this.Token.handle(data.access_token);
     //localStorage.setItem(data.user);

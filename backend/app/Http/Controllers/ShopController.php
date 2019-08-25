@@ -16,58 +16,36 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-    //    $catid= $request->id;
-    return response()->json([
-    'catname' => Categories::where('id','=',$id)->get(),
-        'cat'=> Shop::orderBy('id')->join('Categories','shops.cat_id','=','Categories.id')
-        ->join('Users','shops.user_id','=','Users.id')
-       ->select('shops.*','Categories.cat_name','Users.name','Users.ufile','Users.role')
-       ->where('cat_id','=',$id)
-       ->get()
-       // return $dat;
-        ]);
+        return response()->json(
+            //         'tailor'=>Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
+            //     ->join('Users','products.user_id','=','Users.id')
+            //    ->select('products.*','Categories.cat_name','Categories.cat_type','Users.name','Users.ufile','Users.role')
+            //    ->where('cat_type','=','tailor')
+            //    ->whereBetween('products.id',[3,8])  
+            //     //->paginate(6),
+            //    ->get(),
+              
+               Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
+               ->join('Users','products.user_id','=','Users.id')
+              ->select('products.*','Categories.cat_name','Categories.cat_type','Users.name','Users.ufile','Users.role')
+              ->where('cat_type','=','tailor')
+               ->get()
+                  
+               );
     }
-    public function shopid()
-    {
-    //    $catid= $request->id;
-    return response()->json([
-    //'catname' => Shop::all()
-        'shopid'=> Shop::orderBy('id')->join('Categories','shops.cat_id','=','Categories.id')
-        ->join('Users','shops.user_id','=','Users.id')
-       ->select('shops.*','Categories.cat_name','Users.name','Users.email')
-      // ->where('cat_id','=',$id)
-       ->get()
-       // return $dat;
-        ]);
-    }
+   
     public function shop()
     {
-        return response()->json([
-            'tailor'=>Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
+        return response()->json(
+    
+     Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
         ->join('Users','products.user_id','=','Users.id')
        ->select('products.*','Categories.cat_name','Categories.cat_type','Users.name','Users.ufile','Users.role')
-       ->where('cat_type','=','tailor')
-       ->whereBetween('products.id',[3,8])  
-        //->paginate(6),
-       ->get(),
-       'alltailor'=>Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
-        ->join('Users','products.user_id','=','Users.id')
-       ->select('products.*','Categories.cat_name','Categories.cat_type','Users.name','Users.ufile','Users.role')
-       ->where('cat_type','=','tailor')
-       //->decrement('products.id') , 
-        //->paginate(6),
-        ->get(),
-       'shop'=>Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
-       ->join('Users','products.user_id','=','Users.id')
-      ->select('products.*','Categories.cat_name','Categories.cat_type','Users.name','Users.ufile','Users.role')
-      //->where('cat_type','=','tailor')
        ->where('cat_type','=','shop')
-       //->where('cat_id','=',$id)
-       ->get()
-            //'shop' => Categories::where('cat_type','shop')->get()
-        ]);
+        ->get()
+       );
         
         //return $tailor;
     }

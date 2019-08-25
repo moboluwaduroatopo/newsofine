@@ -76,11 +76,11 @@
                       <div class="tab-content" id="new-arrival-tab-content">
                           <div class="tab-pane fade show active" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab">
                               <div class="row xxl-block-grid-6 xl-block-grid-5 gutter-20">
-                                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of response.product"> 
+                                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of response"> 
                                       <div class="zakas-product">
                                           <div class="product-inner">
                                               <figure class="product-image">
-                                                  <a  href="product-details/{{r.id}}">
+                                                  <a  (click)="navigate(r.id)" >
                                                       <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
                                                   </a>
                                                   <div class="zakas-product-action">
@@ -129,7 +129,7 @@
                                               </figure>
                                               <div class="product-info">
                                                   <h3 class="product-title mb--15">
-                                                      <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                      <a (click)="navigate(r.id)" >{{r.product_name}}</a>
                                                   </h3>
                                                   <div class="product-price-wrapper mb--30">
                                                       <span class="money">{{r.price}}</span>
@@ -148,11 +148,11 @@
                           <div class="tab-pane fade" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
                               <div class="row xxl-block-grid-6 xl-block-grid-5 gutter-20">
                                     <!-- <div class="row xxl-block-grid-6 xl-block-grid-5 gutter-20"> -->
-                                            <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of response.tailor"> 
+                                            <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of res"> 
                                                 <div class="zakas-product">
                                                     <div class="product-inner">
                                                         <figure class="product-image">
-                                                            <a  href="product-details/{{r.id}}">
+                                                            <a  (click)="navigate(r.id)" >
                                                                 <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
                                                             </a>
                                                             <div class="zakas-product-action">
@@ -201,7 +201,7 @@
                                                         </figure>
                                                         <div class="product-info">
                                                             <h3 class="product-title mb--15">
-                                                                <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                                <a (click)="navigate(r.id)" >{{r.product_name}}</a>
                                                             </h3>
                                                             <div class="product-price-wrapper mb--30">
                                                                 <span class="money">{{r.price}}</span>
@@ -220,11 +220,11 @@
                           <div class="tab-pane fade" id="nav-product" role="tabpanel" aria-labelledby="nav-poduct-tab">
                               <div class="row xxl-block-grid-6 xl-block-grid-5 gutter-20">
                                     <!-- <div class="row xxl-block-grid-6 xl-block-grid-5 gutter-20"> -->
-                                            <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of response.shop"> 
+                                            <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" *ngFor="let r of resp"> 
                                                 <div class="zakas-product">
                                                     <div class="product-inner">
                                                         <figure class="product-image">
-                                                            <a href="product-details/{{r.id}}">
+                                                            <a (click)="navigate(r.id)" >
                                                                 <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
                                                             </a>
                                                             <div class="zakas-product-action">
@@ -273,7 +273,7 @@
                                                         </figure>
                                                         <div class="product-info">
                                                             <h3 class="product-title mb--15">
-                                                                <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                                <a (click)="navigate(r.id)" >{{r.product_name}}</a>
                                                             </h3>
                                                             <div class="product-price-wrapper mb--30">
                                                                 <span class="money">{{r.price}}</span>
@@ -295,7 +295,7 @@
                                       <div class="zakas-product">
                                           <div class="product-inner">
                                               <figure class="product-image">
-                                                  <a href="product-details/{{r.id}}">
+                                                  <a (click)="navigate(r.id)" >
                                                       <img src="assets/img/products/prod-13.jpg" alt="Products">
                                                   </a>
                                                   <div class="zakas-product-action">

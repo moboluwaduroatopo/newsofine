@@ -17,7 +17,12 @@
         </div>
     </div>
     <!-- Breadcrumb area End -->
-
+    <div class="container">
+       
+          </div>
+              <!-- </div> -->
+        
+          
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
         <div class="page-content-inner ptb--80">
@@ -37,6 +42,10 @@
                                             "asNavFor": ".nav-slider"
                                         }'>
                                             <figure class="product-gallery__image zoom">
+                                                <img [src]='image' alt="Product">
+                                                
+                                            </figure>
+                                            <!-- <figure class="product-gallery__image zoom">
                                                 <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
                                                 <div class="product-gallery__actions">
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
@@ -56,14 +65,7 @@
                                                     <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
                                                     <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
                                                 </div>
-                                            </figure>
-                                            <figure class="product-gallery__image zoom">
-                                                <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Product">
-                                                <div class="product-gallery__actions">
-                                                    <button class="action-btn btn-zoom-popup"><i class="fa fa-eye"></i></button>
-                                                    <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="fa fa-play"></i></a>
-                                                </div>
-                                            </figure>
+                                            </figure> -->
                                         </div>
                                     </div>
                                 </div>
@@ -107,6 +109,9 @@
                                         }
                                     ]'>
                                         <figure class="product-gallery__nav-image--single">
+                                            <img [src]='image' alt="Products">
+                                        </figure>
+                                        <!-- <figure class="product-gallery__nav-image--single">
                                             <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
                                         </figure>
                                         <figure class="product-gallery__nav-image--single">
@@ -114,10 +119,7 @@
                                         </figure>
                                         <figure class="product-gallery__nav-image--single">
                                             <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
-                                        </figure>
-                                        <figure class="product-gallery__nav-image--single">
-                                            <img src="http://localhost/newsofine/backend/public/upload/uploads/{{sdet.productfile}}" alt="Products">
-                                        </figure>
+                                        </figure> -->
                                     </div>
                                 </div>
                             </div>
@@ -135,10 +137,10 @@
                                     <span>Rated <strong class="rating">5.00</strong> out of 5</span>
                                 </div>
                             </div>
-                            <h3 class="product-title mb--20">{{sdet.cat_name}}</h3>
-                            <p class="product-short-description mb--20">{{sdet.description}}.</p>
+                            <h3 class="product-title mb--20">{{cat_name}}</h3>
+                            <p class="product-short-description mb--20">{{description}}.</p>
                             <div class="product-price-wrapper mb--25">
-                                <span class="money">{{sdet.price}}</span>
+                                <span class="money">{{price}}</span>
                                 <!-- <span class="price-separator">-</span>
                                 <span class="money">$400.00</span> -->
                             </div>
@@ -153,11 +155,11 @@
                                                 </div>
                                             </td>
                                             <td class="product-name">
-                                                <h3><a href="product-details.html">{{sdet.product_name}}</a></h3>
+                                                <h3><a (click)="navigate(r.id)">{{product_name}}</a></h3>
                                             </td>
                                             <td class="product-price">
                                                 <div class="product-price-wrapper">
-                                                    <span class="money">{{sdet.price}}</span>
+                                                    <span class="money">{{price}}</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -204,6 +206,24 @@
                                     </button>
                                 </div>  
                             </form>
+                            <div class="alert alert-success  alert-dismissible fade show" role="alert" [hidden]="!message">
+                                    {{message}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                  </div>
+                                  <!-- <div class="alert alert-success  alert-dismissible fade show" role="alert" [hidden]="!message">
+                                        {{message}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                      </div> -->
+                                      <div class="alert alert-warning  alert-dismissible fade show" role="alert" [hidden]="!warming">
+                                            {{warming}}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                          </div>
                             <div class="product-footer-meta">
                                 <p><span>Category:</span> 
                                     <a href="shop.html">Full Sweater</a>,
@@ -344,14 +364,14 @@
                     </div>
                 </div>
                 <div class="container">
-                        <h2>Other Gigs By {{sdet.name}}</h2>
+                        <h2>Other Gigs By {{name}}</h2>
                         <div class="row  flex-row flex-nowrap">
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response.shopdetails">
+                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response1">
                                 <!-- <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" >  -->
                                         <div class="zakas-product">
                                             <div class="product-inner">
                                                 <figure class="product-image">
-                                                    <a href="product-details/{{r.id}}">
+                                                    <a (click)="navigate(r.id)" >
                                                         <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
                                                     </a>
                                                     <div class="zakas-product-action">
@@ -400,7 +420,7 @@
                                                 </figure>
                                                 <div class="product-info">
                                                     <h3 class="product-title mb--15">
-                                                        <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                        <a (click)="navigate(r.id)" >{{r.product_name}}</a>
                                                     </h3>
                                                     <div class="product-price-wrapper mb--30">
                                                         <span class="money">{{r.price}}</span>
@@ -415,14 +435,14 @@
                              </div>
                              </div></div><br>
                 <div class="container">
-                        <h2>Recommended For You In {{sdet.cat_name}}</h2>
+                        <h2>Recommended For You In {{cat_name}}</h2>
                      <div class="row  flex-row flex-nowrap">
-                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response.catdetails">
+                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let r of response2">
                                 <!-- <div class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 mb--50" >  -->
                                         <div class="zakas-product">
                                             <div class="product-inner">
                                                 <figure class="product-image">
-                                                    <a href="product-details/{{r.id}}">
+                                                    <a (click)="navigate(r.id)" >
                                                         <img src="http://localhost/newsofine/backend/public/upload/uploads/{{r.productfile}}" alt="Products">
                                                     </a>
                                                     <div class="zakas-product-action">
@@ -471,7 +491,7 @@
                                                 </figure>
                                                 <div class="product-info">
                                                     <h3 class="product-title mb--15">
-                                                        <a href="product-details/{{r.id}}">{{r.product_name}}</a>
+                                                        <a (click)="navigate(r.id)" >{{r.product_name}}</a>
                                                     </h3>
                                                     <div class="product-price-wrapper mb--30">
                                                         <span class="money">{{r.price}}</span>
@@ -485,289 +505,7 @@
                                     <!-- </div> -->
                              </div>
                              </div></div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="zakas-element-carousel nav-vertical-center" data-slick-options='{
-                            "spaceBetween": 30,
-                            "slidesToShow": 4,
-                            "slidesToScroll": 1,
-                            "arrows": true,
-                            "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-double-left" },
-                            "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-double-right" }
-                        }'
-                        data-slick-responsive= '[
-                            {"breakpoint":1199, "settings": {
-                                "slidesToShow": 3
-                            }},
-                            {"breakpoint":991, "settings": {
-                                "slidesToShow": 2
-                            }},
-                            {"breakpoint":575, "settings": {
-                                "slidesToShow": 1
-                            }}
-                        ]'>
-                            <div class="item">
-                                <div class="zakas-product">
-                                    <div class="product-inner">
-                                        <figure class="product-image">
-                                            <a href="product-details.html">
-                                                <img src="assets/img/products/prod-9.jpg" alt="Products">
-                                            </a>
-                                            <div class="zakas-product-action">
-                                                <div class="product-action d-flex">
-                                                    <div class="product-size">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current">XL</span>
-                                                        </a>
-                                                        <div class="product-size-swatch">
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                L
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                M
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                S
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-color">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current abbey">Abbey</span>
-                                                        </a>
-                                                        <div class="product-color-swatch">
-                                                            <span class="product-color-swatch-btn blue variation-btn">
-                                                                Blue
-                                                            </span>
-                                                            <span class="product-color-swatch-btn copper variation-btn">
-                                                                Copper
-                                                            </span>
-                                                            <span class="product-color-swatch-btn old-rose variation-btn">
-                                                                Old Rose
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="wishlist.html" class="action-btn">
-                                                        <i class="flaticon flaticon-like"></i>
-                                                    </a>
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
-                                                        <i class="flaticon flaticon-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <span class="product-badge">New</span>
-                                        </figure>
-                                        <div class="product-info">
-                                            <h3 class="product-title mb--15">
-                                                <a href="product-details.html">Long Cartigen</a>
-                                            </h3>
-                                            <div class="product-price-wrapper mb--30">
-                                                <span class="money">$80</span>
-                                                <span class="money-separator">-</span>
-                                                <span class="money">$200</span>
-                                            </div>
-                                            <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="zakas-product">
-                                    <div class="product-inner">
-                                        <figure class="product-image">
-                                            <a href="product-details.html">
-                                                <img src="assets/img/products/prod-10.jpg" alt="Products">
-                                            </a>
-                                            <div class="zakas-product-action">
-                                                <div class="product-action d-flex">
-                                                    <div class="product-size">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current">XL</span>
-                                                        </a>
-                                                        <div class="product-size-swatch">
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                L
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                M
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                S
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-color">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current abbey">Abbey</span>
-                                                        </a>
-                                                        <div class="product-color-swatch">
-                                                            <span class="product-color-swatch-btn blue variation-btn">
-                                                                Blue
-                                                            </span>
-                                                            <span class="product-color-swatch-btn copper variation-btn">
-                                                                Copper
-                                                            </span>
-                                                            <span class="product-color-swatch-btn old-rose variation-btn">
-                                                                Old Rose
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="wishlist.html" class="action-btn">
-                                                        <i class="flaticon flaticon-like"></i>
-                                                    </a>
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
-                                                        <i class="flaticon flaticon-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div class="product-info">
-                                            <h3 class="product-title mb--15">
-                                                <a href="product-details.html">Long Cartigen</a>
-                                            </h3>
-                                            <div class="product-price-wrapper mb--30">
-                                                <span class="money">$80</span>
-                                                <span class="money-separator">-</span>
-                                                <span class="money">$200</span>
-                                            </div>
-                                            <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="zakas-product">
-                                    <div class="product-inner">
-                                        <figure class="product-image">
-                                            <a href="product-details.html">
-                                                <img src="assets/img/products/prod-11.jpg" alt="Products">
-                                            </a>
-                                            <div class="zakas-product-action">
-                                                <div class="product-action d-flex">
-                                                    <div class="product-size">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current">XL</span>
-                                                        </a>
-                                                        <div class="product-size-swatch">
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                L
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                M
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                S
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-color">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current abbey">Abbey</span>
-                                                        </a>
-                                                        <div class="product-color-swatch">
-                                                            <span class="product-color-swatch-btn blue variation-btn">
-                                                                Blue
-                                                            </span>
-                                                            <span class="product-color-swatch-btn copper variation-btn">
-                                                                Copper
-                                                            </span>
-                                                            <span class="product-color-swatch-btn old-rose variation-btn">
-                                                                Old Rose
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="wishlist.html" class="action-btn">
-                                                        <i class="flaticon flaticon-like"></i>
-                                                    </a>
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
-                                                        <i class="flaticon flaticon-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <span class="product-badge">New</span>
-                                        </figure>
-                                        <div class="product-info">
-                                            <h3 class="product-title mb--15">
-                                                <a href="product-details.html">Long Cartigen</a>
-                                            </h3>
-                                            <div class="product-price-wrapper mb--30">
-                                                <span class="money">$80</span>
-                                                <span class="money-separator">-</span>
-                                                <span class="money">$200</span>
-                                            </div>
-                                            <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="zakas-product">
-                                    <div class="product-inner">
-                                        <figure class="product-image">
-                                            <a href="product-details.html">
-                                                <img src="assets/img/products/prod-12.jpg" alt="Products">
-                                            </a>
-                                            <div class="zakas-product-action">
-                                                <div class="product-action d-flex">
-                                                    <div class="product-size">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current">XL</span>
-                                                        </a>
-                                                        <div class="product-size-swatch">
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                L
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                M
-                                                            </span>
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                S
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-color">
-                                                        <a href="" class="action-btn">
-                                                            <span class="current abbey">Abbey</span>
-                                                        </a>
-                                                        <div class="product-color-swatch">
-                                                            <span class="product-color-swatch-btn blue variation-btn">
-                                                                Blue
-                                                            </span>
-                                                            <span class="product-color-swatch-btn copper variation-btn">
-                                                                Copper
-                                                            </span>
-                                                            <span class="product-color-swatch-btn old-rose variation-btn">
-                                                                Old Rose
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="wishlist.html" class="action-btn">
-                                                        <i class="flaticon flaticon-like"></i>
-                                                    </a>
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn quick-view">
-                                                        <i class="flaticon flaticon-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <span class="product-badge">New</span>
-                                        </figure>
-                                        <div class="product-info">
-                                            <h3 class="product-title mb--15">
-                                                <a href="product-details.html">Long Cartigen</a>
-                                            </h3>
-                                            <div class="product-price-wrapper mb--30">
-                                                <span class="money">$80</span>
-                                                <span class="money-separator">-</span>
-                                                <span class="money">$200</span>
-                                            </div>
-                                            <a href="cart" class="btn btn-small btn-bg-sand btn-color-dark">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ 
             </div>
         </div>
     </div>

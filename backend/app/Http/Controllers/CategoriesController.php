@@ -12,12 +12,19 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function tailor()
     {
-        return response()->json([
-            'tailor' => Categories::where('cat_type','tailor')->get(),
-            'shop' => Categories::where('cat_type','shop')->get()
-        ]);
+        return response()->json(
+            Categories::where('cat_type','tailor')->get()
+            );
+        //return response()->json(Categories::all());
+       //$cat= Categories::all()
+    }
+    public function shop()
+    {
+        return response()->json(
+            Categories::where('cat_type','shop')->get()
+       );
         //return response()->json(Categories::all());
        //$cat= Categories::all()
     }

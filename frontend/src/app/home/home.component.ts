@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../services/jarwis.service';
 import { AddproductComponent } from '../components/addproduct/addproduct.component';
+import { Router } from '@angular/router';
 // import {NgxPaginationModule} from 'ngx-pagination';
 @Component({
   selector: 'app-home',
@@ -9,8 +10,10 @@ import { AddproductComponent } from '../components/addproduct/addproduct.compone
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  resp: Object;
+  respo: Object;
 
-  constructor( private http: HttpClient, private Jarwis: JarwisService) { }
+  constructor( private http: HttpClient,private router: Router, private Jarwis: JarwisService) { }
  public profile={
    email:null,
    password:null
@@ -22,37 +25,37 @@ export class HomeComponent implements OnInit {
      this.displaycat()
      this.displaytailor()
      this.displayproduct()
+     this.displayshopt()
   }
 displaycat(){
-  // this.response = this.Jarwis.det;
-  // console.log(this.response);
   this.Jarwis.catid().subscribe(data=>{
-    //console.log(data);
-    this.response = data;
-   // console.log(this.response);
+    this.respo = data;
+   console.log(this.respo);
   })
   
 }
 displayproduct(){
-  // this.response = this.Jarwis.det;
-  // console.log(this.response);
   this.Jarwis.allproduct().subscribe(data=>{
-    //console.log(data);
     this.response = data;
    // console.log(this.response);
   })
   
 }
 displaytailor(){
-  // this.response = this.Jarwis.det;
-  // console.log(this.response);
   this.Jarwis.tailor().subscribe(data=>{
-    
     this.res = data;
     console.log(this.res);
-  //  console.log(this.res.tailor.current_page);
-  //  console.log(this.res.tailor.per_page);
   })
   
+}
+displayshopt(){
+  this.Jarwis.shopt().subscribe(data=>{
+    this.resp = data;
+    console.log(this.resp);
+  })
+  
+}
+navigate(id){
+  this.router.navigate(['product-details/'+id+''])
 }
 }

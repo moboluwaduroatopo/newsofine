@@ -17,19 +17,35 @@ class ProductController extends Controller
      */
     public function index($id)
     {
-        return response()->json([
-            'catname' => Categories::where('id','=',$id)->get(),
-                'cat'=> Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
+        return response()->json(
+            //[
+            Categories::where('id','=',$id)->get()
+            //     'cat'=> Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
+            //     ->join('Users','products.user_id','=','Users.id')
+            //    ->select('products.*','Categories.cat_name','Users.name','Users.ufile','Users.role')
+            //    ->where('cat_id','=',$id)
+            //    ->get()
+            //    // return $dat;
+            //     ]
+        );
+    }
+    public function cat($id)
+    {
+        return response()->json(
+            //[
+            // 'catname' => Categories::where('id','=',$id)->get(),
+                Product::orderBy('id')->join('Categories','products.cat_id','=','Categories.id')
                 ->join('Users','products.user_id','=','Users.id')
                ->select('products.*','Categories.cat_name','Users.name','Users.ufile','Users.role')
                ->where('cat_id','=',$id)
                ->get()
                // return $dat;
-                ]);
+            //    ]
+            );
     }
     public function allproduct()
     {
-        return response()->json(['product'=>Product::all()]);
+        return response()->json(Product::all());
     }
     /**
      * Show the form for creating a new resource.
@@ -43,33 +59,49 @@ class ProductController extends Controller
        $pros=$pro[0]->user_id;
        $cat=$pro[0]->cat_id;
        //return $pros;
-         return response()->json([
+         return response()->json(
             // 'catname' => Shop::where('id','=',$id)->get(),
-                'shop'=> Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
+                 Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
                ->join('Users','products.user_id','=','Users.id')
                ->select('Products.*','Categories.cat_name','users.name','users.role')
                ->where('products.id','=',$id)
-               ->get(),
-               'shopdetails'=> Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
+               ->get()
+                );
+    
+    }
+    public function productbyuser($id)
+    {
+        //$pro=Product::all()
+       $pro= Product::where('id','=',$id)->get();
+       $pros=$pro[0]->user_id;
+       $cat=$pro[0]->cat_id;
+       //return $pros;
+         return response()->json(
+               Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
                ->join('Users','products.user_id','=','Users.id')
               ->select('Products.*','Categories.cat_name','Users.name','users.role','users.ufile')
               ->where('user_id','=',$pros)
-              ->get(),
-              'catdetails'=> Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
+              ->get()
+              );
+   
+    }
+    public function productbycat($id)
+    {
+        //$pro=Product::all()
+       $pro= Product::where('id','=',$id)->get();
+       $pros=$pro[0]->user_id;
+       $cat=$pro[0]->cat_id;
+       //return $pros;
+         return response()->json(
+             Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
                ->join('Users','products.user_id','=','Users.id')
               ->select('Products.*','Categories.cat_name','Users.name','users.role','users.ufile')
               ->where('cat_id','=',$cat)
               ->get()
                // return $dat;
-                ]);
-    // $shop= Product::orderBy('id')->join('Categories','Products.cat_id','=','Categories.id')
-    //        ->join('Users','products.user_id','=','Users.id')
-    //        ->select('Products.*','Categories.cat_name','users.name','users.role')
-    //        ->where('products.id','=',$id)
-    //        ->get();
-    // return $shop->products.user_id;
-    }
-
+              );
+   
+    } 
     /**
      * Store a newly created resource in storage.
      *

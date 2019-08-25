@@ -46,14 +46,20 @@ export class JarwisService {
   shop(id:string) {
     return this.http.get(`${this.baseUrl}/shop/${id}`)
   }
+  shopcat(id:string) {
+    return this.http.get(`${this.baseUrl}/shopcat/${id}`)
+  }
   allproduct() {
     return this.http.get(`${this.baseUrl}/product`)
   }
   cart() {
     return this.http.get(`${this.baseUrl}/cart-show`)
   }
-  cat() {
-    return this.http.get(`${this.baseUrl}/cat`)
+  catshop() {
+    return this.http.get(`${this.baseUrl}/shopcat`)
+  }
+  tailorcat() {
+    return this.http.get(`${this.baseUrl}/tailorcat`)
   }
   shopdetails(id:string) {
     return this.http.get(`${this.baseUrl}/shopdetails/${id}`)
@@ -61,8 +67,8 @@ export class JarwisService {
   catid() {
     return this.http.get(`${this.baseUrl}/catid`)
   }
-  shopid() {
-    return this.http.get(`${this.baseUrl}/shopid`)
+  shopt() {
+    return this.http.get(`${this.baseUrl}/shopt`)
   }
   tailor() {
     return this.http.get(`${this.baseUrl}/tailor`)
@@ -72,6 +78,12 @@ export class JarwisService {
   }
   productdetail(id:string) {
     return this.http.get(`${this.baseUrl}/productdetails/${id}`)
+  }
+  productdetail1(id:string) {
+    return this.http.get(`${this.baseUrl}/productdetails1/${id}`)
+  }
+  productdetail2(id:string) {
+    return this.http.get(`${this.baseUrl}/productdetails2/${id}`)
   }
   // productdetail(data):Observable<MyNewInterface[]> {
   //   return this.http.get(`${this.baseUrl}/productdetail`, data)
