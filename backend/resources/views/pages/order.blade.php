@@ -33,6 +33,59 @@
                     <div class="table-responsive">
                         <table id="myTable" class="table table-bordered table-striped">
                           <thead>
+                            
+          <tr>
+            
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>OrderID</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th class="op-0">&nbsp;</th>
+            <th class="op-0">&nbsp;</th>
+          </tr>
+        </thead>
+                            <tbody>
+         @foreach ($orderd as $d)
+          <tr>
+            
+            <td>{{$d->id}}</td>
+            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">{{$d->product_name}}</a> </td>
+            <td>{{$d->price}}</td>
+            <td>{{$d->qty}}</td>
+            <td>{{$d->order_id}}</td>
+            <td>{{$d->status}}</td>
+            <td>{{$d->created_at}}</td>
+            <td  class="text-center"><button type="button" data-orderd-id="1" class="confirmorder btn btn-info" id="{{$d->id}}" >confirm</button> </td>
+                     <!-- <td class="text-center"><a href="{{url('/deletec/'.$d->id)}}" ><i class="fa fa-trash text-danger text-danger"></i></a></td> -->
+            <!-- <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td> -->
+            <!-- <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td> -->
+          </tr>
+               @endforeach
+        </tbody>
+      </table>
+   </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+  <!--   <div class="container-fluid">
+          <div class="row">
+        <div class="col-12">
+            
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Orders</h4>
+                   
+                    <div class="table-responsive">
+                        <table id="myTable" class="table table-bordered table-striped">
+                          <thead>
+                            
           <tr>
             
             <th>ID</th>
@@ -46,86 +99,10 @@
           </tr>
         </thead>
                             <tbody>
+         @foreach ($order as $d)
           <tr>
             
-            <td>8524</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Hakim Summers</a> </td>
-            <td>Air Delivery</td>
-            <td>$1175</td>
-            <td>In Stock</td>
-            <td>11.08.2018, 01:13</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-          
-            <td>1234</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Eric Breinstorm</a> </td>
-            <td>Post</td>
-            <td>$750</td>
-            <td>In Stock</td>
-            <td>05.04.2018, 05:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>2651</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mellissa Reynolds</a> </td>
-            <td>American Ex.</td>
-            <td>$375</td>
-            <td>Out of Stock</td>
-            <td>15.11.2018, 12:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>4591</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Jessica Abbingtom</a> </td>
-            <td>FeedEx</td>
-            <td>$175</td>
-            <td>In Stock</td>
-            <td>13.06.2018, 09:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>9821</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mason Hudson</a> </td>
-            <td>Air Delivery</td>
-            <td>$515</td>
-            <td>Out of Stock</td>
-            <td>23.12.2018, 11:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-           
-            <td>5913</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Sasha Rhodes</a> </td>
-            <td>Post</td>
-            <td>$2115</td>
-            <td>In Stock</td>
-            <td>28.11.2018, 8:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>7815</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mitchell Jones</a> </td>
-            <td>American Ex.</td>
-            <td>$85</td>
-            <td>In Stock</td>
-            <td>25.05.2018, 02:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>6581</td>
+            <td>{{$d->id}}</td>
             <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Nina Fox</a> </td>
             <td>FedEx</td>
             <td>$456</td>
@@ -134,91 +111,15 @@
             <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
             <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
           </tr>
-<tr>
-          
-            <td>1234</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Eric Breinstorm</a> </td>
-            <td>Post</td>
-            <td>$750</td>
-            <td>In Stock</td>
-            <td>05.04.2018, 05:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>2651</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mellissa Reynolds</a> </td>
-            <td>American Ex.</td>
-            <td>$375</td>
-            <td>Out of Stock</td>
-            <td>15.11.2018, 12:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>4591</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Jessica Abbingtom</a> </td>
-            <td>FeedEx</td>
-            <td>$175</td>
-            <td>In Stock</td>
-            <td>13.06.2018, 09:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>9821</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mason Hudson</a> </td>
-            <td>Air Delivery</td>
-            <td>$515</td>
-            <td>Out of Stock</td>
-            <td>23.12.2018, 11:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-           
-            <td>5913</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Sasha Rhodes</a> </td>
-            <td>Post</td>
-            <td>$2115</td>
-            <td>In Stock</td>
-            <td>28.11.2018, 8:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>7815</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Mitchell Jones</a> </td>
-            <td>American Ex.</td>
-            <td>$85</td>
-            <td>In Stock</td>
-            <td>25.05.2018, 02:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
-          <tr>
-            
-            <td>6581</td>
-            <td class="text-dark weight-600"><a href="ecommerce-order-page.html">Nina Fox</a> </td>
-            <td>FedEx</td>
-            <td>$456</td>
-            <td>Out of Stock</td>
-            <td>19.07.2018, 12:15</td>
-            <td class="text-center"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-            <td class="text-center"><a href="#"><i class="fas fa-trash-alt text-danger"></i></a></td>
-          </tr>
+               @endforeach
         </tbody>
       </table>
    </table>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
     <!-- ============================================================== -->
     <!-- End PAge Content -->
     <!-- ============================================================== -->
@@ -254,4 +155,72 @@
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
 </div>
+
+ <div id="confirmordermodel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {!! Form::open(['action'=>'OrderController@confirm','method' => 'POST' ,'enctype'=>'multipart/form-data']) !!}
+
+      <div class="modal-header">
+         
+        <h4 class="modal-title text-center" id="gridModalLabel" >Confirm your orders</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid" id="product_detail" class="image">
+          <br>
+          <div class="row">
+            <div class="col-sm-9 col-example">
+             <input type="" name="orderd_id" id="orderd_id" hidden="hidden">
+              <div class="form-group">
+                        <label class="control-label text-primary font-20">1. Did you have the product, please select Yes.<br>2. I don't the product, select No<br> 3. Have u deliv the product</label>
+                        <div>
+                          <select class="form-control" name="status">
+                            <option>Select </option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="del">Delivery</option>
+                          </select>
+                          <!-- <input type="text" class="form-control font-14"  name="cat_type"  placeholder="cat type"> -->
+                        </div>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-success waves-effect waves-light" data-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Close</button>
+       
+      </div>
+            {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // body...
+        var s;
+        $(document).on('click',".confirmorder",function(){
+            // $(this).addClass('confirmorder-trigger-clicked');
+              s= $(this).attr("id"); 
+             // alert(s +"dfgmndfngnmfd");
+            var options={
+                'backdrop':'static'
+            };
+            $('#confirmordermodel').modal(options)
+            })
+        $('#confirmordermodel').on('show.bs.modal',function(){
+            // val s= $(this).attr("id"); 
+                var el=$(".confirmorder-trigger-clicked");
+                var row=el.closest(".data-row");
+                var id=s;
+                $("#orderd_id").val(id);
+              // alert(id)
+        })
+    })
+</script>
 @endsection

@@ -142,6 +142,8 @@
                     <input maxlength="200" type="text" required="required" class="form-control" placeholder="" name="acctnumber"  />
                    
                   </div>
+                  <input type="hidden" class="form-control" name="status" value="Y" required>
+
                   <button type="submit" class="btn btn-success btn-lg pull-right">
                     {{ __('Register') }}
                 </button>

@@ -5,12 +5,14 @@ import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
 import { EventListener } from '@angular/core/src/debug/debug_node';
 import { SharedService } from '../../services/shared.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  public loggedIn: boolean;
   public form = {
     zip: null,
    state:null,
@@ -30,7 +32,7 @@ public nums:number=0;
  public error = null;
  public orderItem;
   // Shared: any;
-  constructor(private Token: TokenService, 
+  constructor(private Token: TokenService, private Auth: AuthService,
     private Jarwis: JarwisService,private Shared: SharedService,private router: Router) { }
     public response:any;
 public prod;
@@ -86,6 +88,8 @@ this.Jarwis.profile().subscribe(
 
 }
   ngOnInit() {
+    
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.displayuser()
     this.nums +=1;
    // let count=this.Jarwis.getproductFromCart();

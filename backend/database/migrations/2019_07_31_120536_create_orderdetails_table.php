@@ -18,6 +18,7 @@ class CreateOrderdetailsTable extends Migration
             $table->increments('id');
             $table->string('product_id');
             $table->string('order_id');
+             $table->string('status')->default("pending");
             $table->string('qty');
             $table->timestamps();
         });

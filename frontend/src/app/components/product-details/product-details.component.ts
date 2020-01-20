@@ -54,8 +54,8 @@ role: any;
   OnAddCart(product){
  //console.log(product)
 this.productAddedToCart=this.Jarwis.getproductFromCart();
-this.cartItemCount=this.productAddedToCart.length;
-this.Shared.updateCartCount(this.cartItemCount);
+// this.cartItemCount=this.productAddedToCart.length;
+// this.Shared.updateCartCount(this.cartItemCount);
 //console.log(this.cartItemCount)
 if(this.productAddedToCart==null)
 {
@@ -136,16 +136,12 @@ this.Shared.updateCartCount(this.cartItemCount);
 
 // }
   ngOnInit() {
-this.productAddedToCart=this.Jarwis.getproductFromCart();
-this.cartItemCount=this.productAddedToCart.length;
-//this.Shared.updateCartCount(this.cartItemCount);
-console.log(this.cartItemCount)
-   
+
     // this.displayshopdetails();
     this.actRoute.paramMap.subscribe((params => {
-      //console.log(this.shop_id)
-      let id = params.get('id');
-       //console.log(id)
+    console.log(params)
+    let id = params.get('id');
+       console.log(id)
     this.Jarwis.productdetail(id).subscribe(data=>{
     this.response = data;
     this.sdet=this.response[0];
@@ -170,6 +166,12 @@ console.log(this.cartItemCount)
   })
      // console.log(this.Jarwis.shop(id));
     }));
+
+//     this.productAddedToCart=this.Jarwis.getproductFromCart();
+// this.cartItemCount=this.productAddedToCart.length;
+// //this.Shared.updateCartCount(this.cartItemCount);
+// console.log(this.cartItemCount)
+   
   }
   navigate(id){
     this.router.navigate(['product-details/'+id+''])

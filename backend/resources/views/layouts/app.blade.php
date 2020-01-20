@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    
+
     <!-- Scripts -->
     <script src="{{ asset('js1/app.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

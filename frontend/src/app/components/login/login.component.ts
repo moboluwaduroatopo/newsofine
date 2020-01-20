@@ -58,6 +58,7 @@ public role;
 
     // }
    // this.router.navigateByUrl('/profile');
+   this.ngOnInit()
   }
 
   handleError(error) {

@@ -19,6 +19,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { BuyerComponent } from './components/buyer/buyer.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
+import { StoriesComponent } from './comments/stories/stories.component';
+import { StoryComponent } from './comments/story/story.component';
+import { RepliesComponent } from './comments/replies/replies.component';
 
 
 const appRoutes: Routes = [
@@ -31,10 +34,18 @@ const appRoutes: Routes = [
     path: 'shop/:id',
     component: ShopComponent,
   },
-  // {
-  //   path: 'shop',
-  //   component: ShopComponent,
-  // },
+  {
+    path: 'stories',
+    component: StoriesComponent,
+  },
+  {
+    path: 'story/:id',
+    component: StoryComponent,
+  },
+  {
+    path: 'replies/:id',
+    component: RepliesComponent,
+  },
   {
     path: 'buyer',
     component: BuyerComponent,

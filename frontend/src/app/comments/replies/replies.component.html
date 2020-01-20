@@ -1,0 +1,83 @@
+<!-- Main Content Wrapper Start -->
+<!--Comments-->
+<div class="card card-comments mb-3 wow fadeIn">
+    <div class="card-header font-weight-bold"> Post</div>
+    <div class="card-body">
+
+        <div class="media d-block d-md-flex mt-4">
+            <img class="d-flex mb-3 mx-auto " src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg" alt="Generic placeholder image">
+            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                <h5 class="mt-0 font-weight-bold">Miley Steward
+                    <!-- <a  routerLink="/replies" class="pull-right">Reply
+                        <i class="fa fa-reply"></i>
+                    </a> -->
+                </h5>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+               
+
+              
+
+
+              
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!--/.Comments-->
+
+<!--Reply-->
+<div class="card mb-3 wow fadeIn">
+        <div class="card-header font-weight-bold">Create comment</div>
+        <div class="card-body">
+    
+            <!-- Default form reply -->
+           <!-- Default form reply -->
+           <form #storyForm=ngForm (ngSubmit)="onSubmit()">
+                <div class="alert alert-success  alert-dismissible fade show" role="alert" [hidden]="!message">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+           
+            <!-- Comment -->
+            <div class="form-group">
+                <label for="replyFormComment">Your comment</label>
+                <textarea  name="reply_comment" [(ngModel)]="form.reply_comment" class="form__input form__input--textarea" required="required"></textarea>
+                <!-- <div class="alert alert-danger" [hidden]="!error.comment">
+                    {{error.comment}}
+                </div> -->
+            </div>
+           
+            <!-- Name -->
+            <div>
+            <label for="replyFormName">Your name</label>
+            <input type="text"  class="form__input form__input--2"  id="inputname3" name="reply_name" [(ngModel)]="form.reply_name" required="required">
+            <!-- <div class="alert alert-danger" [hidden]="!error.story_name">
+                {{error.story_name}}
+            </div> -->
+        </div>
+        
+            <br>      
+            <div class="text-center mt-4">
+                <button class="btn btn-info btn-md" type="submit">Post</button>
+            </div>
+        </form>
+    
+    
+        </div>
+    </div>
+    <!-- <form [formGroup]="logingdata" novalidate (ngSubmit)="go()">
+        {{logingdata.value | json}}
+        <input formControlName="email">
+        <span class="text-danger" *ngIf="email.touched && email.invalid">Invalide Email</span>
+        <br>
+        <input formControlName="pass">
+        <br>
+        <button class="btn btn-info" [disabled]="logingdata.invalid" type="submit">send</button>
+    </form> -->

@@ -75,7 +75,23 @@
             });
         });
     </script>
-        
+    {{-- <script>
+        $(document).on('click','.open_modal',function(){
+            // alert('hi')
+           
+            var id= $(this).val();
+            var url = "http://sofineseller.dev/productlist/";
+            $.get(url + '/' + id + '/'+ edit , function (data) {
+                //success data
+                console.log(data);
+                // $('#tour_id').val(data.id);
+                // $('#name').val(data.name);
+                // $('#details').val(data.details);
+                $('#btn-save').val("update");
+                $('#myModal').modal('show');
+            }) 
+        });
+        </script> --}}
        <style type="text/css">
          body{
           background:linear
@@ -414,8 +430,8 @@
                                     </li>
                                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-document mr-10"></i><span class="hide-menu">Categories</span></a>
                                         <ul aria-expanded="false" class="collapse">
-                                            <li><a href="addcat">1 Column</a></li>
-                                            <li><a href="catlist">Fix header</a></li>
+                                            <li><a href="addcat">AddCat</a></li>
+                                            {{-- <li><a href="catlist">Fix header</a></li> --}}
                                            
                                         </ul>
                                     </li>
@@ -513,5 +529,8 @@
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
+    <script>
+    
     </body>
+
 </html>

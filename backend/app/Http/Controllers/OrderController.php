@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
+use App\Buyer_user;
 use Image;
 use App\Product;
 use App\Shopdetails;
@@ -27,9 +28,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function DisplayOrderByUser()
     {
-        //
+        
     }
 
     /**
@@ -40,9 +41,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-       $authid=auth()->user()->id;
+       $authid=auth::guard('buyer_user')->user()->id;
        $cartProducts = $request->product;
-     // return $cartProducts;
+    //   return $authid;
     
         //dd( $cartProducts);
          $order = new Order;
@@ -75,7 +76,10 @@ return response()->json(['message' => 'Order was Successfully ']);
 //     return view('product.success');
     //ret
     }
-
+ public function confirm(Request $request)
+    {
+return $request;
+}
     /**
      * Display the specified resource.
      *

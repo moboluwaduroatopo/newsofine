@@ -30,6 +30,11 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BuyerComponent } from './components/buyer/buyer.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { StoriesComponent } from './comments/stories/stories.component';
+import { StoryComponent } from './comments/story/story.component';
+import { RepliesComponent } from './comments/replies/replies.component';
+
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -54,6 +59,9 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     ProductDetailsComponent,
     BuyerComponent,
     WishlistComponent,
+    StoriesComponent,
+    StoryComponent,
+    RepliesComponent,
  
   ],
   imports: [
@@ -62,7 +70,8 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     AppRoutingModule,
     FormsModule,
     // NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
    
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],

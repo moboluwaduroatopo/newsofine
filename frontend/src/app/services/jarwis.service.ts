@@ -19,6 +19,12 @@ export class JarwisService {
   product(data) {
     return this.http.post(`${this.baseUrl}/product`, data)
   }
+  stories(data) {
+    return this.http.post(`${this.baseUrl}/stories`, data)
+  }
+  addstory(data) {
+    return this.http.post(`${this.baseUrl}/story`,data)
+  }
  addshop(data) {
     return this.http.post(`${this.baseUrl}/addshop`, data)
   }
@@ -28,6 +34,13 @@ export class JarwisService {
   addshopdetails(data) {
     return this.http.post(`${this.baseUrl}/addshopdetails`, data)
   }
+  addpost(data) {
+    return this.http.post(`${this.baseUrl}/post`, data)
+  }
+  displaystories() {
+    return this.http.get(`${this.baseUrl}/stories`)
+  }
+  
   profile() {
     return this.http.get(`${this.baseUrl}/me`,{headers:{
       Authorization:`Bearer ${localStorage.token}`
@@ -48,6 +61,12 @@ export class JarwisService {
   }
   shopcat(id:string) {
     return this.http.get(`${this.baseUrl}/shopcat/${id}`)
+  }
+  story(id:string) {
+    return this.http.get(`${this.baseUrl}/story/${id}`)
+  }
+  post(id:string) {
+    return this.http.get(`${this.baseUrl}/post/${id}`)
   }
   allproduct() {
     return this.http.get(`${this.baseUrl}/product`)

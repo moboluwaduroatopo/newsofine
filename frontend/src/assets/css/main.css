@@ -2558,6 +2558,7 @@ a, a:hover, a:focus, a:active, button, button:focus, input, select, textarea, .s
   border-radius: 5px; }
   .form__input--2 {
     height: 40px; }
+   
     .form__input--2.nice-select {
       height: 40px;
       width: 100%; }

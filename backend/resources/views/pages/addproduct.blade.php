@@ -50,20 +50,29 @@
                 </div>
               </div>
             </div>
+            {!! Form::open(['action'=>'ProductController@store','method' => 'POST' ,'enctype'=>'multipart/form-data']) !!}
             <div class="upload-photo">
-              <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="" name="productfile"/>
+              
+                             
+                    <label class="btn btn-primary btn-file">
+                        choose file
+                        <input  type="file" name="productfile" style="display: none;"> 
+                    </label>
+                
+              {{-- <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="" name="productfile"/> --}}
             </div>
           </div>
           <!-- End of product slider -->
           <div class="col-lg-8 col-md-8">
             <div class="row">
               <div class="form-wrap form-wrap2 col-12 mt-4">
-                <form class="form-horizontal">
+                <div class="form-horizontal" >
+                    
                   <div class="col-sm-12 col-xs-12">
                     <div class="form-group">
                       <label class="control-label text-primary font-12">Product Name</label>
                       <div>
-                        <input type="text" class="form-control font-14"  name="name"  placeholder="Name">
+                        <input type="text" class="form-control font-14"  name="product_name"  placeholder="Name">
                       </div>
                     </div>
                   </div>
@@ -73,12 +82,15 @@
                       <div class="col-sm-12 col-xs-12">
                         <label class="control-label font-14">Select Category</label>
                         <div>
+                           
                           <select class="custom-select font-14" name="cat_id" data-style="btn-default btn-outline">
                             <option  data-tokens="Category">Select Category </option>
-                            <option data-tokens="Category 1">Category 1</option>
-                            <option data-tokens="Category 2">Category 2</option>
-                            <option data-tokens="Category 3">Category 3</option>
+                            @foreach ($cat as $d)
+                          <option data-tokens="Category 1" value="{{$d->id}}"name='cat_id' >{{$d->cat_name}} - {{$d->cat_type}}</option>
+                          @endforeach
+                            
                           </select>
+                          
                         </div>
                       </div>
                       {{-- <div class="col-md-6 col-xs-12">
@@ -90,7 +102,15 @@
                     </div>
                   </div>
                   <div class="clearfix"></div>
-                  <div class="form-group">
+                  <div class="col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <label class="control-label text-primary font-12">Price</label>
+                        <div>
+                          <input type="text" class="form-control font-14"  name="price"  placeholder="Price">
+                        </div>
+                      </div>
+                    </div>
+                  {{-- <div class="form-group">
                     <div class="row m-0">
                       <div class="col-md-6 col-xs-12">
                         <label class="control-label font-14"> Price</label>
@@ -106,7 +126,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="clearfix"></div>
                   {{-- <div class="form-group">
                     <div class="col-sm-12">
@@ -121,7 +141,7 @@
                     </div>
                   </div> --}}
                   <div class="col-md-6 col-xs-12">
-                        <input type="hidden" class="form-control font-14" name="buyer_id"  placeholder="">
+                        <input type="hidden" class="form-control font-14" name="user_id" value="{{Auth::user()->id}}" placeholder="">
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-12">
@@ -140,12 +160,13 @@
                     </div>
                     <div class="col-md-6 text-right pr-30">
                       <div class="5">
-                        <button type="button" class="btn waves-effect waves-light btn-primary">Save</button>
+                        <button type="submit" class="btn waves-effect waves-light btn-primary" >Save</button>
                         <button type="button" class="btn waves-effect waves-light btn-outline-default">Cancel</button>
                       </div>
                     </div>
                   </div>
-                </form>
+                  {!! Form::close() !!}
+                </div>
               </div>
             </div>
           </div>

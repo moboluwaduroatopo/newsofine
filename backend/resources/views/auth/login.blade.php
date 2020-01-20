@@ -38,6 +38,7 @@
                                 @endif
                             </div>
                         </div>
+                        <input type="hidden" class="form-control" name="status" value="Y" required>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

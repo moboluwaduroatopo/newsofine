@@ -49,6 +49,13 @@ Route::get('/cart-show','CartController@cartshow');
 Route::POST('/update-cart','CartController@updatecart');
 Route::POST('/checkout','OrderController@store');
 Route::get('/delete-cart/{id}','CartController@deletecart');
+
+Route::POST('/stories','StoriesController@store');
+Route::get('/stories','StoriesController@index');
+Route::get('/story/{id}','StoriesController@create');
+Route::POST('/story','StoriesController@storepost');
+Route::get('/post/{id}','StoriesController@reply');
+Route::POST('/post','StoriesController@storereply');
  Route::get('test',function(){
      return response()->json([
          'user'=>['fname'=>'tawa',

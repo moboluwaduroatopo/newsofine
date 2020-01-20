@@ -1,0 +1,120 @@
+<div class="row bootstrap snippets">
+        <div class="col-md-6 col-md-offset-2 col-sm-12">
+            <div class="comment-wrapper">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Comment panel
+                    </div>
+                    <div class="panel-body">
+                       
+                        <hr>
+                        <ul class="media-list">
+                            <li class="media" *ngFor="let r of res">
+                                <a href="#" class="pull-left">
+                                    <img style="width:64px;height:64px;border:2px solid #e5e7e8;" src="http://localhost/newsofine/backend/public/upload/posts/male.png" alt="" class="img-circle">
+                                </a>
+                                <div class="media-body">
+                                    <span class="text-muted pull-right">
+                                        <small class="text-muted">{{r.created_at}}</small>
+                                        <!-- <a (click)="navigate(r.id)" class="pull-right">
+                                                <i class="fa fa-reply"></i>
+                                            </a> -->
+                                    </span>
+                                    <strong class="text-success">@{{r.story_name}}</strong>
+                                    <p> {{r.comment}}
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Lorem ipsum dolor sit amet.
+                                    </p>
+                                    <span class="text-muted pull-right">
+                                           Reply
+                                            <a (click)="navigate(r.id)" class="pull-right">
+                                                    <i class="fa fa-reply"></i>
+                                                </a>
+                                        </span>
+                                 </div> 
+                               
+                            </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+<!-- Main Content Wrapper Start -->
+<!--Comments-->
+<!-- <div class="card card-comments mb-3 wow fadeIn">
+    <div class="card-header font-weight-bold"> Post</div>
+    <div class="card-body">
+
+        <div class="media d-block d-md-flex mt-4">
+            <img class="d-flex mb-3 mx-auto " src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg" alt="Generic placeholder image">
+            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                <h5 class="mt-0 font-weight-bold">Miley Steward
+                    <a  (click)="navigate(r.id)" class="pull-right">Reply
+                        <i class="fa fa-reply"></i>
+                    </a>
+                </h5>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+               
+
+              
+
+
+              
+            </div>
+        </div>
+        
+    </div>
+</div> -->
+<!--/.Comments-->
+
+<!--Reply-->
+<div class="card mb-3 wow fadeIn">
+    <div class="card-header font-weight-bold">Create comment</div>
+    <div class="card-body">
+
+        <!-- Default form reply -->
+       <!-- Default form reply -->
+       <form #storyForm=ngForm (ngSubmit)="onSubmit()">
+            <div class="alert alert-success  alert-dismissible fade show" role="alert" [hidden]="!message">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+       
+        <!-- Comment -->
+        <div class="form-group">
+            <label for="replyFormComment">Your comment</label>
+            <textarea  name="comment" [(ngModel)]="form.comment" class="form__input form__input--textarea" required="required"></textarea>
+            <!-- <div class="alert alert-danger" [hidden]="!error.comment">
+                {{error.comment}}
+            </div> -->
+        </div>
+       
+        <!-- Name -->
+        <div>
+        <label for="replyFormName">Your name</label>
+        <input type="text"  class="form__input form__input--2"  id="inputname3" name="story_name" [(ngModel)]="form.story_name" required="required">
+        <!-- <div class="alert alert-danger" [hidden]="!error.story_name">
+            {{error.story_name}}
+        </div> -->
+    </div>
+    
+        <br>      
+        <div class="text-center mt-4">
+            <button class="btn btn-info btn-md" type="submit">Post</button>
+        </div>
+    </form>
+
+
+    </div>
+</div>
+

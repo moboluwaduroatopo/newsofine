@@ -35,9 +35,9 @@
                  <th>ID</th>
                  <th>Product</th>
                  <th>Category</th>
-                 <th>SKU</th>
+                 <th>Description</th>
                  <th>Price</th>
-                 <th>QTY</th>
+                 <th>Username</th>
                  <th>Status</th>
                  <td class="op-0">&nbsp;</td>
                 <td class="op-0">&nbsp;</td>
@@ -47,105 +47,23 @@
             </thead>
                                
 <tbody>
-              <tr>
-              <td>1245</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro4.jpg" alt="" title=""> Riser white laptop <br>
-                  </td>
-               <td>Technique</td>
-                 <td>C1561</td>
-                 <td>$1175</td>
-                 <td>25</td>
+        @foreach ($product as $d)
+        <tr>
+            <td>{{$d->id}}</td>
+                <td class="text-dark font-bold"><img  src='/upload/uploads/{{$d->productfile}}'  alt="" title="">{{$d->product_name}}<br></td>
+        <td>{{$d->cat_name}} {{$d->cat_type}}</td>
+            <td>{{$d->description}}</td>
+                 <td>{{$d->price}}</td>
+                 
+                 <td>{{$d->name}}</td>
                  <td>In Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              
-              
-              <tr>
-              <td>5891</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro5.jpg" alt="" title=""> Red wine lipstick <br>
-                  </td>
-               <td>Women Accessories</td>
-                 <td>P4545</td>
-                 <td>$750</td>
-                 <td>140</td>
-                 <td>In Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              
-              <tr>
-              <td>1234</td>
-                <td class="text-dark font-bold"><img src="../assets/images/gallery/pro3.jpg" alt="" title=""> Huawei Y512 phone <br>
-                  </td>
-               <td>Phone</td>
-                 <td>K5463</td>
-                 <td>$375</td>
-                 <td>54</td>
-                 <td>Out of Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              <tr>
-              <td>7811</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro.jpg" alt="" title=""> Notebook Asus Aspire <br>
-                  </td>
-               <td>Technique</td>
-                 <td>A5415</td>
-                 <td>$175</td>
-                 <td>5</td>
-                 <td>In Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              <tr>
-              <td>6587</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro6.jpg" alt="" title=""> Rose hand cream <br>
-                  </td>
-               <td>Cosmetics</td>
-                 <td>Q4811</td>
-                 <td>$515</td>
-                 <td>14</td>
-                 <td>Out of Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              <tr>
-              <td>2451</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro7.jpg" alt="" title="">Wood table in red <br>
-                  </td>
-               <td>Furniture</td>
-                 <td>F1561</td>
-                 <td>$2115</td>
-                 <td>321</td>
-                 <td>In Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              <tr>
-              <td>2611</td>
-                 <td class="text-dark font-bold"><img src="../assets/images/gallery/pro8.jpg" alt="" title=""> Baby oil for body <br>
-                  </td>
-               <td>Oils</td>
-                 <td>I1551</td>
-                 <td>$85</td>
-                 <td>985	</td>
-                 <td>In Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
-              <tr>
-              <td>7891</td>
-                <td class="text-dark font-bold"><img src="../assets/images/gallery/pro2.jpg" alt="" title=""> Women Gold ring <br>
-                  </td>
-               <td>Women Accessories</td>
-                 <td>A156</td>
-                 <td>$456</td>
-                 <td>12</td>
-                 <td>Out of Stock</td>
-                 <td class="text-center"><a href="#"><i class="fa fa-pencil text-primary"></i></a></td>
-                      <td class="text-center"><a href="#"><i class="fa fa-trash text-danger text-danger"></i></a></td>
-              </tr>
+                 {{-- <td  class="text-center  open_modal"><a href="/product/{{$d->id}}/edit" data-toggle="modal" data-target="#sideModalTR"><i class="fa fa-pencil text-primary"></i></a></td> --}}
+        <td  class="text-center  "><button class="open_modal" value="{{$d->id}}"><i class="fa fa-pencil text-primary"></i></button></td>
+                 <td class="text-center"><a href="{{url('/deleteproduct/'.$d->id)}}" ><i class="fa fa-trash text-danger text-danger"></i></a></td></tr>
+             
+         @endforeach
+         
+           
             </tbody>
         
 
@@ -162,13 +80,12 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                        
-        
         </div>                          
 
                   </div>
                 </div>
-                <!-- Column --> </div>
+                <!-- Column --> 
+            </div>
         </div>
         <!-- ============================================================== -->
         <!-- End PAge Content -->
@@ -205,6 +122,33 @@
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
     </div>
+<!-- Side Modal Top Right -->
 
+<!-- To change the direction of the modal animation change .right class -->
+<div class="modal fade right" id="sideModalTR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Side Modal Top Right -->
 
 @endsection
